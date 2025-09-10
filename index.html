@@ -51,28 +51,6 @@
             pointer-events: none;
         }
 
-        .code-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.05;
-            z-index: -1;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            line-height: 1.4;
-            white-space: pre;
-            color: var(--primary);
-            pointer-events: none;
-            animation: codeScroll 60s linear infinite;
-        }
-
-        @keyframes codeScroll {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-        }
-
         /* Header */
         header {
             position: fixed;
@@ -96,7 +74,7 @@
 
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
@@ -116,7 +94,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -168,22 +146,7 @@
             position: relative;
             background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(10px, 10px); }
+            padding: 2rem 5%;
         }
 
         .hero-content {
@@ -191,7 +154,7 @@
             text-align: center;
             position: relative;
             z-index: 2;
-            padding: 0 2rem;
+            width: 100%;
         }
 
         .hero-badge {
@@ -212,7 +175,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
             background: linear-gradient(135deg, var(--text) 0%, var(--primary) 50%, var(--secondary) 100%);
@@ -224,7 +187,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 4vw, 1.3rem);
             color: var(--text-muted);
             margin-bottom: 3rem;
             max-width: 600px;
@@ -235,13 +198,14 @@
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
             font-weight: 600;
@@ -285,25 +249,14 @@
             box-shadow: 0 12px 35px rgba(0, 245, 255, 0.4);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 245, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
         /* Terminal Window */
         .terminal {
             background: var(--darker);
             border: 1px solid var(--light-gray);
             border-radius: 12px;
-            margin: 3rem 0;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 100%;
         }
 
         .terminal-header {
@@ -335,7 +288,7 @@
         .terminal-body {
             padding: 1.5rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2.5vw, 0.9rem);
             line-height: 1.4;
         }
 
@@ -359,7 +312,7 @@
 
         /* Section Styling */
         section {
-            padding: 120px 5% 80px;
+            padding: 80px 5% 60px;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -367,7 +320,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             position: relative;
         }
 
@@ -381,7 +334,7 @@
         }
 
         .section-header h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
             color: var(--text);
@@ -389,99 +342,17 @@
         }
 
         .section-header p {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.7;
         }
 
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: rgba(26, 26, 32, 0.8);
-            border: 1px solid rgba(0, 245, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(20px);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 245, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.1);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            color: var(--dark);
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-tech {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tech-tag {
-            background: rgba(124, 58, 237, 0.2);
-            color: var(--secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
         /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
@@ -502,20 +373,10 @@
         }
 
         .portfolio-image {
-            height: 250px;
+            height: 200px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             position: relative;
             overflow: hidden;
-        }
-
-        .portfolio-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" fill="none" stroke="%23000000" stroke-width="0.5" opacity="0.3"/></svg>');
         }
 
         .portfolio-overlay {
@@ -525,25 +386,26 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: var(--dark);
+            padding: 1rem;
         }
 
         .portfolio-overlay h4 {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .portfolio-overlay p {
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             opacity: 0.8;
         }
 
         .portfolio-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .portfolio-content h3 {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             font-weight: 700;
             margin-bottom: 0.8rem;
             color: var(--text);
@@ -553,13 +415,33 @@
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 1.5rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
         .portfolio-meta {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
         }
 
         .portfolio-tags {
@@ -578,146 +460,11 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        .portfolio-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: rgba(5, 5, 8, 0.5);
-            position: relative;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(26, 26, 32, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 16px;
-            position: relative;
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: rgba(0, 245, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .testimonial-quote {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 3rem;
-            color: var(--primary);
-            opacity: 0.3;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 2rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .author-info h4 {
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .rating {
-            display: flex;
-            gap: 0.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .star {
-            color: var(--warning);
-            font-size: 0.8rem;
-        }
-
         /* About Section */
-        #about {
-            padding: 120px 5% 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-            position: relative;
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
             align-items: start;
             margin-top: 3rem;
         }
@@ -725,7 +472,7 @@
         .about-text {
             background: rgba(26, 26, 32, 0.8);
             border: 1px solid rgba(0, 245, 255, 0.1);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 16px;
             position: relative;
             overflow: hidden;
@@ -733,61 +480,23 @@
             transition: all 0.3s ease;
         }
 
-        .about-text::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .about-text:hover::before {
-            opacity: 1;
-        }
-
         .about-text:hover {
-            transform: translateY(-8px);
             border-color: rgba(0, 245, 255, 0.3);
             box-shadow: 0 20px 40px rgba(0, 245, 255, 0.1);
         }
 
         .about-text h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .about-text h3::before {
-            content: '< ';
-            color: var(--accent);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.2rem;
-        }
-
-        .about-text h3::after {
-            content: ' />';
-            color: var(--accent);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.2rem;
         }
 
         .about-text p {
             color: var(--text-muted);
             line-height: 1.7;
             margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .about-text p:last-child {
-            margin-bottom: 0;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
         .highlight {
@@ -795,126 +504,13 @@
             font-weight: 600;
         }
 
-        /* Skills Grid */
-        .skills-container {
-            background: rgba(26, 26, 32, 0.8);
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            padding: 2.5rem;
-            border-radius: 16px;
-            backdrop-filter: blur(20px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .skills-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .skills-container:hover::before {
-            opacity: 1;
-        }
-
-        .skills-container:hover {
-            transform: translateY(-8px);
-            border-color: rgba(124, 58, 237, 0.4);
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
-        }
-
-        .skills-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .skills-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .skills-subtitle {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-card {
-            background: rgba(10, 10, 15, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.2rem 1rem;
-            border-radius: 12px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .skill-card:hover::before {
-            left: 100%;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px) scale(1.05);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.2);
-        }
-
-        .skill-card h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Code decoration */
-        .code-decoration {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--primary);
-            opacity: 0.3;
-        }
-
-        /* Experience indicators */
         .experience-indicators {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .experience-item {
@@ -933,109 +529,75 @@
             background: var(--success);
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-
-        /* Consultation Section
-        .consultation {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        /* Skills Grid */
+        .skills-container {
+            background: rgba(26, 26, 32, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .consultation::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 245, 255, 0.05) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
+        .skills-container:hover {
+            border-color: rgba(124, 58, 237, 0.4);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .consultation-content {
-            position: relative;
-            z-index: 2;
+        .skills-header {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .consultation-card {
-            background: rgba(26, 26, 32, 0.9);
-            border: 1px solid rgba(0, 245, 255, 0.2);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(30px);
-            position: relative;
-        }
-
-        .consultation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-        }
-
-        .price {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--success);
-            margin: 1.5rem 0;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .price-label {
-            font-size: 1rem;
-            color: var(--text-muted);
             margin-bottom: 2rem;
         }
 
-        .features {
-            text-align: left;
-            margin: 2.5rem 0;
+        .skills-title {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+        .skills-subtitle {
             color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .feature-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: var(--dark);
-            font-weight: bold;
-        } */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: rgba(10, 10, 15, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.2);
+        }
+
+        .skill-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            z-index: 1;
+        }
 
         /* Contact Section */
         .contact {
@@ -1045,13 +607,13 @@
 
         .contact-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
             align-items: start;
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
             margin-bottom: 2rem;
             color: var(--primary);
             font-weight: 700;
@@ -1087,14 +649,34 @@
             margin-bottom: 0.5rem;
         }
 
-        .contact-details p {
-            color: var(--text-muted);
-            line-height: 1.5;
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(26, 26, 32, 0.8);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: rgba(0, 245, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         .contact-form {
             background: rgba(26, 26, 32, 0.8);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 16px;
             border: 1px solid rgba(0, 245, 255, 0.1);
             backdrop-filter: blur(20px);
@@ -1123,6 +705,7 @@
             color: var(--text);
             font-family: inherit;
             transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
         .form-group input:focus,
@@ -1131,11 +714,6 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.1);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-muted);
         }
 
         /* Footer */
@@ -1150,7 +728,7 @@
             margin: 0 auto;
             padding: 3rem 5% 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
 
@@ -1159,12 +737,14 @@
             margin-bottom: 1.5rem;
             font-weight: 700;
             font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
         }
 
         .footer-section p {
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 1rem;
+            font-size: 0.9rem;
         }
 
         .footer-section a {
@@ -1173,34 +753,11 @@
             display: block;
             margin-bottom: 0.8rem;
             transition: color 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .footer-section a:hover {
             color: var(--primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(26, 26, 32, 0.8);
-            border: 1px solid rgba(0, 245, 255, 0.2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: rgba(0, 245, 255, 0.1);
-            transform: translateY(-2px);
         }
 
         .footer-bottom {
@@ -1212,21 +769,100 @@
 
         .footer-bottom p {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* Responsive Design */
+        /* Mobile-First Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 15, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(0, 245, 255, 0.1);
+                border-top: none;
+                gap: 1.5rem;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
             }
 
             .mobile-menu {
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .logo {
+                font-size: 1rem;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+
+            section {
+                padding: 60px 5% 40px;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding: 2rem 5%;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .terminal {
+                margin: 2rem 0;
+            }
+
+            .terminal-body {
+                padding: 1rem;
+            }
+
+            .terminal-title {
+                font-size: 0.7rem;
+                margin-left: 0.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .portfolio-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .portfolio-links {
+                gap: 0.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 0.8rem;
+            }
+
+            .skill-card {
+                padding: 0.8rem;
+            }
+
+            .skill-card h4 {
+                font-size: 0.8rem;
             }
 
             .contact-content {
@@ -1234,14 +870,78 @@
                 gap: 2rem;
             }
 
-            section {
-                padding: 80px 5% 60px;
+            .contact-form {
+                padding: 1.5rem;
             }
 
-            .services-grid,
-            .portfolio-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .experience-indicators {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                margin-bottom: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .portfolio-content {
+                padding: 1rem;
+            }
+
+            .about-text {
+                padding: 1.5rem;
+            }
+
+            .skills-container {
+                padding: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 0.8rem;
+            }
+
+            .contact-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Desktop enhancements */
+        @media (min-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            }
+
+            section {
+                padding: 120px 5% 80px;
+            }
+
+            .section-header {
+                margin-bottom: 4rem;
             }
         }
 
@@ -1257,29 +957,7 @@
             transform: translateY(0);
         }
 
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Scroll behavior */
+        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -1301,11 +979,20 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(var(--secondary), var(--primary));
         }
+
+        @keyframes blink-animation {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blink {
+            animation: blink-animation 1s steps(2, start) infinite;
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
-    <div class="code-bg" id="codeBg"></div>
-
     <!-- Header -->
     <header>
         <nav>
@@ -1336,7 +1023,6 @@
                     <span>→</span>
                     <span>View My Work</span>
                 </a>
-               
             </div>
             
             <div class="terminal">
@@ -1387,16 +1073,18 @@
                 <div class="portfolio-content">
                     <div class="portfolio-meta">
                         <h3>Diversey Engineering</h3>
-                        <a href="https://apps.apple.com/us/app/diversey-engineering/id6747880481" class="portfolio-link">
-                            <span>App Store</span>
-                            
-                        </a>
-                         <a href="https://play.google.com/store/apps/details?id=com.diversey.engineeringapp" class="portfolio-link">
-                            <span>Play Store</span>
-                            <span>→</span>
-                        </a>
+                        <div class="portfolio-links">
+                            <a href="https://apps.apple.com/us/app/diversey-engineering/id6747880481" class="portfolio-link">
+                                <span>App Store</span>
+                                <span>→</span>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.diversey.engineeringapp" class="portfolio-link">
+                                <span>Play Store</span>
+                                <span>→</span>
+                            </a>
+                        </div>
                     </div>
-                    <p>Diversey Engineering is a productivity tool used by Diversey’s technical service teams. Its primary function is to enable these teams to install, program, and update Diversey IntelliControl systems—smart equipment used in dispensing operations.</p>
+                    <p>Diversey Engineering is a productivity tool used by Diversey's technical service teams. Its primary function is to enable these teams to install, program, and update Diversey IntelliControl systems—smart equipment used in dispensing operations.</p>
                     <div class="portfolio-tags">
                         <span class="tag">Flutter</span>
                         <span class="tag">Azure</span>
@@ -1415,10 +1103,12 @@
                 <div class="portfolio-content">
                     <div class="portfolio-meta">
                         <h3>Mobile Coffee Shop</h3>
-                        <a href="https://github.com/kaldillard/mobile_coffee_shop" class="portfolio-link">
-                            <span>GitHub</span>
-                            <span>→</span>
-                        </a>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/kaldillard/mobile_coffee_shop" class="portfolio-link">
+                                <span>GitHub</span>
+                                <span>→</span>
+                            </a>
+                        </div>
                     </div>
                     <p>The coffee ordering app allows users to place orders for pickup or delivery from their favorite coffee shop, saving time and avoiding long wait lines. The app targets coffee enthusiasts looking for a quick and convenient coffee ordering experience.</p>
                     <div class="portfolio-tags">
@@ -1438,10 +1128,12 @@
                 <div class="portfolio-content">
                     <div class="portfolio-meta">
                         <h3>NFT Marketplace App</h3>
-                        <a href="https://github.com/kaldillard/nft_app_clone" class="portfolio-link">
-                            <span>GitHub</span>
-                            <span>→</span>
-                        </a>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/kaldillard/nft_app_clone" class="portfolio-link">
+                                <span>GitHub</span>
+                                <span>→</span>
+                            </a>
+                        </div>
                     </div>
                     <p>This is a UI-only implementation of an NFT marketplace application built with Flutter. The app focuses on providing users with a modern, glass-morphism design for exploring and discovering NFT collections.</p>
                     <div class="portfolio-tags">
@@ -1459,10 +1151,12 @@
                 <div class="portfolio-content">
                     <div class="portfolio-meta">
                         <h3>Banking App</h3>
-                        <a href="https://github.com/kaldillard/banking_app" class="portfolio-link">
-                            <span>GitHub</span>
-                            <span>→</span>
-                        </a>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/kaldillard/banking_app" class="portfolio-link">
+                                <span>GitHub</span>
+                                <span>→</span>
+                            </a>
+                        </div>
                     </div>
                     <p>Banking App UI Summary This is a UI-only implementation of a modern banking application built with Flutter. The app features a clean, contemporary design focused on providing users with an intuitive financial dashboard experience.</p>
                     <div class="portfolio-tags">
@@ -1470,57 +1164,10 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="portfolio-item">
-                <div class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h4>IoT Dashboard</h4>
-                        <p>Real-time data visualization</p>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <div class="portfolio-meta">
-                        <h3>SmartFactory OS</h3>
-                        <a href="#" class="portfolio-link">
-                            <span>GitHub</span>
-                            <span>⚡</span>
-                        </a>
-                    </div>
-                    <p>Industrial IoT monitoring system with real-time sensor data, predictive maintenance, and automated alert systems.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">InfluxDB</span>
-                        <span class="tag">MQTT</span>
-                        <span class="tag">Grafana</span>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="portfolio-item">
-                <div class="portfolio-image">
-                    <div class="portfolio-overlay">
-                        <h4>Gaming Platform</h4>
-                        <p>Real-time multiplayer engine</p>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <div class="portfolio-meta">
-                        <h3>GameVerse Engine</h3>
-                        <a href="#" class="portfolio-link">
-                            <span>Play Now</span>
-                            <span>🎮</span>
-                        </a>
-                    </div>
-                    <p>Multiplayer gaming platform with WebSocket connections, real-time synchronization, and social features for 100K+ concurrent users.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Socket.io</span>
-                        <span class="tag">Unity</span>
-                        <span class="tag">WebGL</span>
-                        <span class="tag">MongoDB</span>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="fade-in">
         <div class="section-header">
             <div class="section-label">// About Developer</div>
@@ -1532,7 +1179,6 @@
 
         <div class="about-content">
             <div class="about-text">
-                <div class="code-decoration">{...}</div>
                 <h3>Passionate Mobile Developer</h3>
                 <p>
                     With over <span class="highlight">5 years of experience</span> in mobile app development, I specialize in creating high-performance, user-centric applications for both iOS and Android platforms.
@@ -1566,82 +1212,37 @@
                     <p class="skills-subtitle">Technologies I work with daily</p>
                 </div>
                 <div class="skills-grid">
-                    <div class="skill-card" style="--delay: 0ms;">
+                    <div class="skill-card">
                         <h4>Flutter</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 100ms;">
+                    <div class="skill-card">
                         <h4>Swift</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 200ms;">
+                    <div class="skill-card">
                         <h4>Kotlin</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 300ms;">
+                    <div class="skill-card">
                         <h4>Bloc</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 400ms;">
+                    <div class="skill-card">
                         <h4>HTML</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 500ms;">
+                    <div class="skill-card">
                         <h4>Firebase</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 600ms;">
+                    <div class="skill-card">
                         <h4>AWS</h4>
                     </div>
-                    <div class="skill-card" style="--delay: 700ms;">
+                    <div class="skill-card">
                         <h4>Riverpod</h4>
                     </div>
-                     <div class="skill-card" style="--delay: 700ms;">
+                    <div class="skill-card">
                         <h4>CSS</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Consultation Section
-    <section id="consultation" class="consultation fade-in">
-        <div class="section-header">
-            <div class="section-label">// Get Started</div>
-            <h2>Free Technical Consultation</h2>
-            <p>30-minute deep-dive session with our senior engineers and solution architects</p>
-        </div>
-        <div class="consultation-content">
-            <div class="consultation-card">
-                <h3>Architecture Review & Strategy Session</h3>
-                <div class="price">$0</div>
-                <div class="price-label">No commitment • No sales pitch • Pure technical value</div>
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <span>Technical architecture assessment</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <span>Technology stack recommendations</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <span>Scalability & performance analysis</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <span>Development timeline & resource planning</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <span>Code review & optimization suggestions</span>
-                    </div>
-                </div>
-                <a href="https://calendly.com/mikal-dillard-b1development/30min" class="btn btn-primary" target="_blank">
-                    <span>🚀</span>
-                    <span>Book Technical Session</span>
-                </a>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
-                    Available: Mon-Fri 9:00-5:00 EST | Response time: &lt; 4 hours
-                </p>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact fade-in">
@@ -1657,39 +1258,20 @@
                     <div class="contact-icon">🔗</div>
                     <div class="contact-details">
                         <h4>GitHub</h4>
-                     <div class="social-links">
-                    <a href="https://github.com/kaldillard" title="GitHub">🔗</a>
-                </div>
+                        <div class="social-links">
+                            <a href="https://github.com/kaldillard" title="GitHub">🔗</a>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">💼</div>
                     <div class="contact-details">
-                        <h4>LinkedIn</h4> <div class="social-links">
-                    <a href="https://www.linkedin.com/in/mikal-dillard-73b35714a" title="LinkedIn">💼</a>
-                </div>
-                    </div>
-                </div>
-                <!-- <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
                         <h4>LinkedIn</h4>
-                        <p>Charlotte, NC 28202<br>
-                        Remote-first • Global delivery</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/mikal-dillard-73b35714a" title="LinkedIn">💼</a>
+                        </div>
                     </div>
-                </div> -->
-                <!-- <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
-                    <div class="contact-details">
-                        <h4>Availability</h4>
-                        <p>Mon-Fri: 9:00 AM - 5:00 PM EST<br>
-                    </div>
-                </div> -->
-                <!-- <div class="social-links">
-                    <a href="#" title="GitHub">🔗</a>
-                    <a href="#" title="LinkedIn">💼</a>
-                    
-                </div> -->
+                </div>
             </div>
             <form id="contact-form" class="contact-form">
                 <div class="form-group">
@@ -1722,11 +1304,7 @@
                         <option value="">Select primary service</option>
                         <option value="mobile-app">Mobile App Development</option>
                         <option value="web-app">Web Application</option>
-                        <!-- <option value="ai-ml">AI/ML Integration</option>
-                        <option value="blockchain">Blockchain/Web3</option>
-                        <option value="devops">DevOps & Infrastructure</option> -->
                         <option value="consulting">Technical Consulting</option>
-                        <!-- <option value="full-stack">Full-Stack Solution</option> -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -1762,156 +1340,8 @@
                     <span>⚡</span>
                     <span>Send Technical Brief</span>
                 </button>
-                <!-- <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
-                    We'll respond within 4 hours with a detailed technical assessment
-                </p> -->
             </form>
         </div>
-
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
-    <script>
-// Initialize EmailJS with your public key
-emailjs.init({
-    publicKey: "3sgxxsZpUeQ6qttv5",
-});
-
-     // Get form elements
-const form = document.getElementById("contact-form");
-const submitBtn = document.getElementById("submit-btn");
-
-// Function to show status message (add this CSS to your existing styles)
-function showStatus(message, isSuccess = true) {
-    // Remove any existing status message
-    const existingStatus = document.querySelector('.form-status-message');
-    if (existingStatus) {
-        existingStatus.remove();
-    }
-    
-    // Create new status message
-    const statusDiv = document.createElement('div');
-    statusDiv.className = 'form-status-message';
-    statusDiv.textContent = message;
-    statusDiv.style.cssText = `
-        margin-top: 1rem;
-        padding: 1rem;
-        border-radius: 8px;
-        font-weight: 600;
-        text-align: center;
-        ${isSuccess ? 
-            'background: rgba(0, 255, 136, 0.1); color: var(--success); border: 1px solid var(--success);' : 
-            'background: rgba(255, 0, 0, 0.1); color: #ff6b6b; border: 1px solid #ff6b6b;'
-        }
-    `;
-    
-    // Insert after the form
-    form.parentNode.insertBefore(statusDiv, form.nextSibling);
-    
-    // Auto-hide after 5 seconds
-    setTimeout(() => {
-        statusDiv.remove();
-    }, 5000);
-}
-
-// Function to set loading state  
-function setLoading(loading) {
-    const submitBtn = document.getElementById("submit-btn");
-    if (loading) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>⚡</span><span>Sending...</span>';
-    } else {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span>⚡</span><span>Send Technical Brief</span>';
-    }
-}
-
-// CORRECTED Form submission handler
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    console.log('Form submission started'); // Debug log
-    
-    // ✅ PROPER VALIDATION - Get values directly from form elements
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const service = document.getElementById('service').value;
-    const message = document.getElementById('message').value.trim();
-    
-    // Validate required fields
-    const missingFields = [];
-    if (!name) missingFields.push('Full Name');
-    if (!email) missingFields.push('Email Address');
-    if (!service) missingFields.push('Primary Interest');
-    if (!message) missingFields.push('Technical Requirements');
-    
-    if (missingFields.length > 0) {
-        showStatus(`❌ Please fill in: ${missingFields.join(', ')}`, false);
-        return;
-    }
-    
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showStatus('❌ Please enter a valid email address', false);
-        return;
-    }
-    
-    console.log('Validation passed, sending email...'); // Debug log
-    
-    // Set loading state
-    setLoading(true);
-    
-    // Send email using EmailJS
-    emailjs.sendForm("service_eru1gdd", "template_ouzy68a", this)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            showStatus("✅ Message sent successfully! We'll get back to you soon.", true);
-            form.reset(); // Clear the form
-            setLoading(false);
-            
-        })
-        .catch(function(error) {
-            console.error('FAILED...', error);
-            
-            // More specific error messages
-            let errorMessage = "❌ Failed to send message. ";
-            if (error.status === 429) {
-                errorMessage += "Too many requests. Please try again in a few minutes.";
-            } else if (error.status === 400) {
-                errorMessage += "Invalid form data. Please check all fields.";
-            } else {
-                errorMessage += "Please try again or contact us directly.";
-            }
-            
-            showStatus(errorMessage, false);
-        })
-        .finally(function() {
-            // Remove loading state
-            setLoading(false);
-        });
-});
-
-// Optional: Real-time validation feedback
-const requiredFields = ['name', 'email', 'service', 'message'];
-requiredFields.forEach(fieldId => {
-    const field = document.getElementById(fieldId);
-    if (field) {
-        field.addEventListener('blur', function() {
-            if (!this.value.trim()) {
-                this.style.borderColor = '#ff6b6b';
-            } else {
-                this.style.borderColor = 'rgba(0, 245, 255, 0.3)';
-            }
-        });
-
-        field.addEventListener('input', function() {
-            if (this.style.borderColor === 'rgb(255, 107, 107)' && this.value.trim()) {
-                this.style.borderColor = 'rgba(0, 245, 255, 0.3)';
-            }
-        });
-    }
-});
-    </script>
-       
     </section>
 
     <!-- Footer -->
@@ -1920,32 +1350,20 @@ requiredFields.forEach(fieldId => {
             <div class="footer-section">
                 <h3>&lt;Mikal Dillard/&gt;</h3>
                 <p>Architect the future through code. Specializing in cutting-edge mobile and web solutions that scale.</p>
-                <!-- <div class="social-links">
-                    <a href="#">🔗</a>
-                    <a href="#">💼</a>
-                    <a href="#">🐦</a>
-                    <a href="#">💬</a>
-                </div> -->
             </div>
             <div class="footer-section">
                 <h3>Services</h3>
                 <a href="#services">Mobile Engineering</a>
                 <a href="#services">Web Applications</a>
-                <!-- <a href="#services">AI/ML Integration</a>
-                <a href="#services">Blockchain Development</a>
-                <a href="#services">DevOps & Infrastructure</a> -->
-                <!-- <a href="#services">Technical Consulting</a> -->
             </div>
             <div class="footer-section">
                 <h3>Resources</h3>
                 <a href="#portfolio">Open Source</a>
                 <a href="#about">Experience</a>
-                
             </div>
             <div class="footer-section">
                 <h3>Connect</h3>
                 <p>📧 contact@b1development.com</p>
-                <!-- <p>📱 +1 (555) 123-CODE</p> -->
                 <p>📍 Charlotte, NC</p>
             </div>
         </div>
@@ -1954,67 +1372,19 @@ requiredFields.forEach(fieldId => {
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Code background animation
-        const codeSnippets = [
-            'const buildFuture = async () => {',
-            '  const innovation = await deploy();',
-            '  return innovation.scale();',
-            '};',
-            '',
-            'class TechSolution {',
-            '  constructor(requirements) {',
-            '    this.stack = selectOptimalStack();',
-            '    this.performance = "blazing-fast";',
-            '  }',
-            '}',
-            '',
-            'npm run build-success',
-            '✓ Tests passing: 100%',
-            '✓ Performance: 99.9%',
-            '✓ Security: Enterprise-grade',
-            '',
-            'git commit -m "shipped 🚀"',
-            'git push origin production',
-            '',
-            'SELECT * FROM innovations',
-            'WHERE impact = "transformative"',
-            'ORDER BY performance DESC;',
-            '',
-            'docker build -t future/app .',
-            'kubectl apply -f deployment.yaml',
-            '',
-            'const AI = new MachineLearning({',
-            '  model: "cutting-edge",',
-            '  accuracy: 0.99,',
-            '  predictions: "game-changing"',
-            '});',
-            '',
-        ];
-
-        function initCodeBackground() {
-            const codeBg = document.getElementById('codeBg');
-            const repeatedCode = Array(50).fill(codeSnippets.join('\n')).join('\n\n');
-            codeBg.textContent = repeatedCode;
-        }
+        // Initialize EmailJS
+        emailjs.init({
+            publicKey: "3sgxxsZpUeQ6qttv5",
+        });
 
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         
         mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'rgba(10, 10, 15, 0.95)';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.padding = '2rem';
-                navLinks.style.backdropFilter = 'blur(20px)';
-                navLinks.style.border = '1px solid rgba(0, 245, 255, 0.1)';
-            }
+            navLinks.classList.toggle('mobile-open');
         });
 
         // Smooth scrolling for navigation
@@ -2028,9 +1398,7 @@ requiredFields.forEach(fieldId => {
                         block: 'start'
                     });
                     // Close mobile menu if open
-                    if (window.innerWidth <= 768) {
-                        navLinks.style.display = 'none';
-                    }
+                    navLinks.classList.remove('mobile-open');
                 }
             });
         });
@@ -2074,186 +1442,108 @@ requiredFields.forEach(fieldId => {
         }, observerOptions);
 
         // Observe elements for animations
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Terminal typing effect
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                } else {
-                    // Add blinking cursor
-                    element.innerHTML += '<span class="blink">_</span>';
-                }
+        // Form functionality
+        function showStatus(message, isSuccess = true) {
+            const existingStatus = document.querySelector('.form-status-message');
+            if (existingStatus) {
+                existingStatus.remove();
             }
-            type();
+            
+            const statusDiv = document.createElement('div');
+            statusDiv.className = 'form-status-message';
+            statusDiv.textContent = message;
+            statusDiv.style.cssText = `
+                margin-top: 1rem;
+                padding: 1rem;
+                border-radius: 8px;
+                font-weight: 600;
+                text-align: center;
+                ${isSuccess ? 
+                    'background: rgba(0, 255, 136, 0.1); color: var(--success); border: 1px solid var(--success);' : 
+                    'background: rgba(255, 0, 0, 0.1); color: #ff6b6b; border: 1px solid #ff6b6b;'
+                }
+            `;
+            
+            const form = document.getElementById('contact-form');
+            form.parentNode.insertBefore(statusDiv, form.nextSibling);
+            
+            setTimeout(() => {
+                statusDiv.remove();
+            }, 5000);
         }
 
-        // Add CSS for blinking cursor
-        const style = document.createElement('style');
-        style.textContent = `
-            .blink {
-                animation: blink-animation 1s steps(2, start) infinite;
-                color: var(--primary);
+        function setLoading(loading) {
+            const submitBtn = document.getElementById("submit-btn");
+            if (loading) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span>⚡</span><span>Sending...</span>';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>⚡</span><span>Send Technical Brief</span>';
             }
-            @keyframes blink-animation {
-                0% { opacity: 1; }
-                50% { opacity: 0; }
-                100% { opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
+        }
 
         // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        document.getElementById('contact-form').addEventListener("submit", function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value.trim();
             
-            // Validation
-            if (!data.name || !data.email || !data.service || !data.message) {
-                alert('Please fill in all required fields marked with *');
+            const missingFields = [];
+            if (!name) missingFields.push('Full Name');
+            if (!email) missingFields.push('Email Address');
+            if (!service) missingFields.push('Primary Interest');
+            if (!message) missingFields.push('Technical Requirements');
+            
+            if (missingFields.length > 0) {
+                showStatus(`Please fill in: ${missingFields.join(', ')}`, false);
                 return;
             }
             
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span>⚡</span><span>Processing...</span>';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                alert('🚀 Technical brief received! Our engineering team will review your requirements and respond within 4 hours with a detailed assessment and next steps.');
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-
-        // Card hover effects with enhanced animations
-        document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Staggered animations for grids
-        function staggeredAnimation(selector, delay = 100) {
-            document.querySelectorAll(selector).forEach((item, index) => {
-                item.style.animationDelay = `${index * delay}ms`;
-            });
-        }
-
-        // Apply staggered animations
-        staggeredAnimation('.service-card', 150);
-        staggeredAnimation('.portfolio-item', 200);
-        staggeredAnimation('.testimonial-card', 100);
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.3;
-            
-            if (hero && scrolled < hero.offsetHeight) {
-                hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showStatus('Please enter a valid email address', false);
+                return;
             }
+            
+            setLoading(true);
+            
+            emailjs.sendForm("service_eru1gdd", "template_ouzy68a", this)
+                .then(function(response) {
+                    showStatus("Message sent successfully! We'll get back to you soon.", true);
+                    document.getElementById('contact-form').reset();
+                })
+                .catch(function(error) {
+                    let errorMessage = "Failed to send message. ";
+                    if (error.status === 429) {
+                        errorMessage += "Too many requests. Please try again in a few minutes.";
+                    } else if (error.status === 400) {
+                        errorMessage += "Invalid form data. Please check all fields.";
+                    } else {
+                        errorMessage += "Please try again or contact us directly.";
+                    }
+                    showStatus(errorMessage, false);
+                })
+                .finally(function() {
+                    setLoading(false);
+                });
         });
 
-        // Dynamic gradient animation
-        function animateGradients() {
-            const elements = document.querySelectorAll('.service-icon, .btn-primary, .author-avatar');
-            elements.forEach(el => {
-                el.style.backgroundSize = '200% 200%';
-                el.style.animation = 'gradient-shift 3s ease infinite';
-            });
-        }
-
-        // Add gradient animation CSS
-        const gradientStyle = document.createElement('style');
-        gradientStyle.textContent = `
-            @keyframes gradient-shift {
-                0% { background-position: 0% 50%; }
-                50% { background-position: 100% 50%; }
-                100% { background-position: 0% 50%; }
-            }
-        `;
-        document.head.appendChild(gradientStyle);
-
-        // Initialize everything when DOM is loaded
+        // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            initCodeBackground();
-            animateGradients();
-            
-            // Fade in page
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.5s ease';
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
-            
-            // Initialize terminal typing effect
-            setTimeout(() => {
-                const terminalCommand = document.querySelector('.terminal-command.blink');
-                if (terminalCommand) {
-                    typeWriter(terminalCommand, 'npm start', 100);
-                }
-            }, 2000);
         });
-
-        // Performance monitoring
-        window.addEventListener('load', function() {
-            if ('performance' in window) {
-                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-                console.log(`🚀 Page loaded in ${loadTime}ms`);
-            }
-        });
-
-        // Easter egg for developers
-        console.log(`
-  ██████╗  ██╗    ██████╗ ███████╗██╗   ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗███╗   ██╗████████╗
-  ██╔══██╗███║    ██╔══██╗██╔════╝██║   ██║██╔════╝██║     ██╔═══██╗██╔══██╗████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
-  ██████╔╝╚██║    ██║  ██║█████╗  ██║   ██║█████╗  ██║     ██║   ██║██████╔╝██╔████╔██║█████╗  ██╔██╗ ██║   ██║   
-  ██╔══██╗ ██║    ██║  ██║██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║     ██║   ██║██╔═══╝ ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   
-  ██████╔╝ ██║    ██████╔╝███████╗ ╚████╔╝ ███████╗███████╗╚██████╔╝██║     ██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   
-  ╚═════╝  ╚═╝    ╚═════╝ ╚══════╝  ╚═══╝  ╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   
-                                                                                                                
-
-    Hey there, fellow developer! 👨‍💻
-    
-    Impressed by our code? We're always looking for talented engineers.
-    Check out our careers page or reach out to: contact@b1development.com
-    
-    Tech Stack used for this site:
-    • Vanilla JavaScript (because sometimes simple is better)
-    • CSS Grid & Flexbox (responsive design mastery)
-    • Web APIs (Intersection Observer, Performance API)
-    • Modern ES6+ features
-    • Performance optimizations
-        `);
-
-        // Add some interactive console commands
-        window.b1development = {
-            about: () => console.log("🚀 B1 Development - We code the future!"),
-            stack: () => console.log("React • Node.js • Python • AWS • Docker • Kubernetes"),
-            contact: () => console.log("📧 contact@b1development.com"),
-            hire: () => console.log("💼 contact@b1development.com - We're hiring!")
-        };
-
-        console.log("Try: b1development.about(), b1development.stack(), b1development.contact(), b1development.hire()");
     </script>
 </body>
 </html>
